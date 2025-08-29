@@ -6,7 +6,7 @@
 /*   By: ekart <ekart@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 15:28:20 by ekart             #+#    #+#             */
-/*   Updated: 2025/08/29 15:28:21 by ekart            ###   ########.fr       */
+/*   Updated: 2025/08/29 17:57:31 by ekart            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ typedef struct s_stack {
 }	t_stack;
 
 void	st_init(t_stack *s, char id);
+t_node	*nd_new(int val);
 void    st_push_top(t_stack *s, t_node *n);
-t_node *st_pop_top(t_stack *s);
+t_node	*st_pop_top(t_stack *s);
 void    st_swap_top2(t_stack *s);
 void    st_rotate_up(t_stack *s);
 void    st_rotate_down(t_stack *s);

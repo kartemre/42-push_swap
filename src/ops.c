@@ -6,7 +6,7 @@
 /*   By: ekart <ekart@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 15:28:32 by ekart             #+#    #+#             */
-/*   Updated: 2025/08/29 17:10:49 by ekart            ###   ########.fr       */
+/*   Updated: 2025/08/29 19:40:53 by ekart            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,25 @@ void rrr(t_stack *a, t_stack *b)
 	if (a->size >= 2) st_rotate_down(a);
 	if (b->size >= 2) st_rotate_down(b);
 	ps_puts("rrr\n");
+}
+
+int	ft_atoi(const char *nptr)
+{
+	int res = 0;
+	int sign = 1;
+	int i = 0;
+	
+	while (nptr[i] == '\v' || nptr[i] == '\f'
+		|| nptr[i] == '\r' || nptr[i] == '\t'
+		|| nptr[i] == '\n' || nptr[i] == ' ')
+		i++;
+	if (nptr[i] != '\0' && (nptr[i] == '-' || nptr[i] == '+'))
+	{
+		if (nptr[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (nptr[i] && nptr[i] > '0' && nptr[i] < '9')
+		res = (res * 10) + (nptr[i++] - '0');
+	return (sign * res);
 }

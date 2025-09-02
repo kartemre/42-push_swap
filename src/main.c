@@ -6,7 +6,7 @@
 /*   By: ekart <ekart@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 15:28:28 by ekart             #+#    #+#             */
-/*   Updated: 2025/08/29 18:00:17 by ekart            ###   ########.fr       */
+/*   Updated: 2025/08/29 19:44:06 by ekart            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,20 @@
 
 int main(int argc, char **argv)
 {
-	(void)argc; (void)argv;
-
+	int x;
 	t_stack a, b;
 	st_init(&a, 'a'); st_init(&b, 'b');
-	st_push_top(&a, nd_new(3));
-	st_push_top(&a, nd_new(2));
-	st_push_top(&a, nd_new(1));
-	// tek hamlede sırala: ra
-	ra(&a); // çıktı: "ra\n"
-	st_clear(&a); st_clear(&b);
-
+	if (argc == 4)
+	{
+		x = ft_atoi(argv[1]);
+		st_push_top(&a, nd_new(x));
+		x = ft_atoi(argv[2]);
+		st_push_top(&a, nd_new(x));
+		x = ft_atoi(argv[3]);
+		st_push_top(&a, nd_new(x));
+		// tek hamlede sırala: ra
+		ra(&a);
+		st_clear(&a); st_clear(&b);
+	}
 	return 0;
 }

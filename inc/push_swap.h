@@ -6,7 +6,7 @@
 /*   By: ekart <ekart@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 15:28:20 by ekart             #+#    #+#             */
-/*   Updated: 2025/08/29 17:57:31 by ekart            ###   ########.fr       */
+/*   Updated: 2025/08/29 19:43:05 by ekart            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void    rr(t_stack *a, t_stack *b);
 void    rra(t_stack *a);
 void    rrb(t_stack *b);
 void    rrr(t_stack *a, t_stack *b);
+int	ft_atoi(const char *nptr);
 
 void    ps_puts(const char *s);
 

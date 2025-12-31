@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekart <ekart@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/10 17:47:25 by ekart             #+#    #+#             */
-/*   Updated: 2025/12/31 06:42:27 by ekart            ###   ########.fr       */
+/*   Created: 2025/10/10 10:25:51 by ekart             #+#    #+#             */
+/*   Updated: 2025/12/31 10:26:09 by ekart            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,18 @@ void	free_split(char **split)
 
 static void	process_number(t_stack *a, char *str)
 {
-	int	value;
+	int		value;
+	t_node	*node;
 
 	if (!is_valid_number(str) || !check_limits(str))
 		error_exit();
 	value = ft_atoi(str);
 	if (has_duplicate(a, value))
 		error_exit();
-	st_push_bottom(a, nd_new(value));
+	node = nd_new(value);
+	if (!node)
+		error_exit();
+	st_push_bottom(a, node);
 }
 
 static void	process_split(t_stack *a, char **split)

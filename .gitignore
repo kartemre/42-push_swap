@@ -1,0 +1,32 @@
+# Compiled files
+*.o
+*.a
+push_swap
+demo
+
+# System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Test files
+test*.txt
+test*.sh
+results*.txt
+checker_linux
+a.out
+
+# Temporary files
+*.log
+*.tmp

@@ -6,28 +6,44 @@
 /*   By: ekart <ekart@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 15:28:28 by ekart             #+#    #+#             */
-/*   Updated: 2025/08/29 19:44:06 by ekart            ###   ########.fr       */
+/*   Updated: 2025/12/30 18:17:39 by ekart            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+static void	do_sort(t_stack *a, t_stack *b)
 {
-	int x;
-	t_stack a, b;
-	st_init(&a, 'a'); st_init(&b, 'b');
-	if (argc == 4)
+	if (a->size == 2)
+		sort_two(a);
+	else if (a->size == 3)
+		sort_three(a);
+	else if (a->size == 4)
+		sort_four(a, b);
+	else if (a->size == 5)
+		sort_five(a, b);
+	else
+		radix_sort(a, b);
+}
+
+int	main(int argc, char **argv)
+{
+	t_stack	a;
+	t_stack	b;
+
+	if (argc < 2)
+		return (0);
+	st_init(&a, 'a');
+	st_init(&b, 'b');
+	parse_and_fill_stack(&a, argc, argv);
+	if (is_sorted(&a))
 	{
-		x = ft_atoi(argv[1]);
-		st_push_top(&a, nd_new(x));
-		x = ft_atoi(argv[2]);
-		st_push_top(&a, nd_new(x));
-		x = ft_atoi(argv[3]);
-		st_push_top(&a, nd_new(x));
-		// tek hamlede sırala: ra
-		ra(&a);
-		st_clear(&a); st_clear(&b);
+		st_clear(&a);
+		st_clear(&b);
+		return (0);
 	}
-	return 0;
+	do_sort(&a, &b);
+	st_clear(&a);
+	st_clear(&b);
+	return (0);
 }

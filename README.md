@@ -54,13 +54,19 @@ make re      # Recompile everything from scratch
 ./push_swap 1 "5 3" 2
 ```
 
-### Testing with Checker
+### Testing
 
 ```bash
-# Python checker (included)
-./push_swap 3 2 1 | python3 checker.py 3 2 1
+# Test performance for 100 numbers
+./performance_test.sh
 
-# Should output: OK (if sorted correctly) or KO (if not sorted)
+# Test correctness with random inputs
+ARG=$(seq 1 100 | shuf | tr '\n' ' ')
+./push_swap $ARG | wc -l  # Count operations
+
+# Verify sorting is correct
+./push_swap 3 2 1
+# Should output operations like: sa, ra, etc.
 ```
 
 ### Performance Benchmarks
@@ -117,7 +123,6 @@ The project implements multiple sorting strategies:
 │   ├── ops_rrotate.c   # rrr operation
 │   ├── sort_small.c    # Sorting for 2-5 elements
 │   └── sort_big.c      # Radix sort for larger inputs
-├── checker.py          # Python checker for testing
 └── Makefile
 ```
 

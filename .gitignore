@@ -2,7 +2,8 @@
 *.o
 *.a
 push_swap
-demo
+test_push_bottom
+test_bit_mantik
 
 # System files
 .DS_Store
@@ -21,8 +22,7 @@ Thumbs.db
 .idea/
 
 # Test files
-test*.txt
-test*.sh
+*.txt
 results*.txt
 checker_linux
 a.out

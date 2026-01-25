@@ -6,7 +6,7 @@
 #    By: ekart <ekart@student.42istanbul.com.tr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/29 15:28:39 by ekart             #+#    #+#              #
-#    Updated: 2025/12/30 20:05:43 by ekart            ###   ########.fr        #
+#    Updated: 2026/01/25 04:26:17 by ekart            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,9 +50,9 @@ clean:
 	$(MAKE) -C $(LIBFT_DIR) clean
 
 fclean: clean
-	rm -f $(NAME) demo
+	rm -f $(NAME)
 	$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re demo
+.PHONY: all clean fclean re

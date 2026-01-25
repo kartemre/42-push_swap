@@ -6,7 +6,7 @@
 /*   By: ekart <ekart@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 10:25:51 by ekart             #+#    #+#             */
-/*   Updated: 2025/12/31 10:26:09 by ekart            ###   ########.fr       */
+/*   Updated: 2026/01/24 10:56:53 by ekart            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,37 +27,40 @@ void	free_split(char **split)
 	free(split);
 }
 
-static void	process_number(t_stack *a, char *str)
+static int	process_number(t_stack *a, char *str)
 {
 	int		value;
 	t_node	*node;
 
 	if (!is_valid_number(str) || !check_limits(str))
-		error_exit();
+		return (0);
 	value = ft_atoi(str);
 	if (has_duplicate(a, value))
-		error_exit();
+		return (0);
 	node = nd_new(value);
 	if (!node)
-		error_exit();
+		return (0);
 	st_push_bottom(a, node);
+	return (1);
 }
 
-static void	process_split(t_stack *a, char **split)
+static int	process_split(t_stack *a, char **split)
 {
 	int	j;
 
 	if (!split || !split[0])
-		error_exit();
+		return (0);
 	j = 0;
 	while (split[j])
 	{
-		process_number(a, split[j]);
+		if (!process_number(a, split[j]))
+			return (0);
 		j++;
 	}
+	return (1);
 }
 
-void	parse_and_fill_stack(t_stack *a, int argc, char **argv)
+int	parse_and_fill_stack(t_stack *a, int argc, char **argv)
 {
 	int		i;
 	char	**split;
@@ -66,8 +69,13 @@ void	parse_and_fill_stack(t_stack *a, int argc, char **argv)
 	while (i < argc)
 	{
 		split = ft_split(argv[i], ' ');
-		process_split(a, split);
+		if (!process_split(a, split))
+		{
+			free_split(split);
+			return (0);
+		}
 		free_split(split);
 		i++;
 	}
+	return (1);
 }

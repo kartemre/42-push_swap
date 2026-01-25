@@ -6,7 +6,7 @@
 /*   By: ekart <ekart@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 15:28:28 by ekart             #+#    #+#             */
-/*   Updated: 2025/12/30 18:17:39 by ekart            ###   ########.fr       */
+/*   Updated: 2026/01/24 10:56:53 by ekart            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,13 @@ int	main(int argc, char **argv)
 		return (0);
 	st_init(&a, 'a');
 	st_init(&b, 'b');
-	parse_and_fill_stack(&a, argc, argv);
+	if (!parse_and_fill_stack(&a, argc, argv))
+	{
+		st_clear(&a);
+		st_clear(&b);
+		write(2, "Error\n", 6);
+		return (1);
+	}
 	if (is_sorted(&a))
 	{
 		st_clear(&a);

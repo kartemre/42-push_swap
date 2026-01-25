@@ -6,7 +6,7 @@
 /*   By: ekart <ekart@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 15:28:20 by ekart             #+#    #+#             */
-/*   Updated: 2025/12/30 20:05:43 by ekart            ###   ########.fr       */
+/*   Updated: 2026/01/24 10:56:53 by ekart            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdint.h>
-# include <stdbool.h>
 # include "../42-Libft/libft.h"
 
 typedef struct s_node
@@ -60,7 +58,7 @@ void	rrr(t_stack *a, t_stack *b);
 void	ps_puts(const char *s);
 
 void	error_exit(void);
-void	parse_and_fill_stack(t_stack *a, int argc, char **argv);
+int		parse_and_fill_stack(t_stack *a, int argc, char **argv);
 void	free_split(char **split);
 int		is_valid_number(const char *str);
 long	ft_atol(const char *str);
